@@ -86,9 +86,3 @@ class LidNidMapperGUI:
         def run_query(function):
             return
 
-
-root = Tk()
-
-lid_nid_gui = LidNidMapperGUI(root)
-root.config(menu=lid_nid_gui.menubar)
-root.mainloop()

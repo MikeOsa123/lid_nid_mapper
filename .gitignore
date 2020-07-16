@@ -33,4 +33,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 
+# ignore config files
+*config.py
 
+__pycache__/

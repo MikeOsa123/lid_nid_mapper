@@ -18,18 +18,18 @@ class LidNidMapperGUI:
         # create dropdown menu for campaign type
         self.variable = StringVar(master)
         self.variable.set(OPTIONS[0]) # default value for dropdown mmenu
-        self.menu_window = OptionMenu(master, variable, OPTIONS[0], *OPTIONS)
+        self.menu_window = OptionMenu(master, self.variable, OPTIONS[0], *OPTIONS)
         self.menu_window.grid(row=1, column=1, sticky=W+E)
 
         # menu bar
         self.menubar = Menu(master)
         self.filemenu = Menu(master, tearoff=0)
-        self.filemenu.add_command(label="New", command=donothing)
-        self.filemenu.add_command(label="Open", command=donothing)
-        self.filemenu.add_command(label="Save", command=donothing)
+        self.filemenu.add_command(label="New", command=lambda: donothing())
+        self.filemenu.add_command(label="Open", command=lambda: donothing())
+        self.filemenu.add_command(label="Save", command=lambda: donothing())
         self.filemenu.add_separator()
-        self.filemenu.add_command(label="Exit", command=window.quit)
-        self.menubar.add_cascade(label="File", menu=filemenu)
+        self.filemenu.add_command(label="Exit", command=master.quit)
+        self.menubar.add_cascade(label="File", menu=self.filemenu)
 
         # create text box labels
         self.client_label = Label(master, text="Client Name")
@@ -58,10 +58,10 @@ class LidNidMapperGUI:
             return None
 
         # create buttons
-        self.submit_btn = Button(master, text="Submit Query", width=10, command=clicked)
-        self.submit_btn.grid(row=3, column=0, padx=10, pady=5, sticky=N+S+E+W)
+        self.submit_btn = Button(master, text="Submit Query", width=10, command=lambda: clicked())
+        self.submit_btn.grid(row=3, column=0, columnspan=2,  padx=10, pady=5, sticky=N+S+E+W)
         self.query_btn = Button(master, text="Run Query", width=10, command=lambda: run_query(function) )
-        self.query_btn.grid(row=4, column=0, padx=10, pady=5, sticky=N+S+E+W)
+        self.query_btn.grid(row=4, column=0, columnspan=2, padx=10, pady=5, sticky=N+S+E+W)
 
         # event handlers
         self.client_entry.bind("<Button-1>", clear_textbox)
@@ -85,3 +85,10 @@ class LidNidMapperGUI:
 
         def run_query(function):
             return
+
+
+root = Tk()
+
+lid_nid_gui = LidNidMapperGUI(root)
+root.config(menu=lid_nid_gui.menubar)
+root.mainloop()

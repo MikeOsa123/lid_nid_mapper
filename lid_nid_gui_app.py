@@ -30,6 +30,10 @@ class LidNidMapperGUI:
         self.filemenu.add_separator()
         self.filemenu.add_command(label="Exit", command=window.quit)
         self.menubar.add_cascade(label="File", menu=filemenu)
+
+        # create text box labels
+        self.client_label = Label(master, text="Client Name")
+        self.client_label.grid(row=0, column=0, sticky=W)
         
 
         # functions for gui app

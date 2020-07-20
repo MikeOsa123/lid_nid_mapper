@@ -2,7 +2,17 @@ import snowflake.connector
 import os
 import pandas as pd
 
-class SnowflakeUtility:
+class SnowflakeApi:
+    
+    """
+    PURPOSE:
+        This is the Base/Parent class for programs that use the Snowflake
+        Connector for Python.
+        This class is intended primarily for:
+            * Running Queries
+            * Creating tables
+    """
+
     # set environment variables as attributes
     def __init__(self, **kwargs):
         self.user = os.getenv('SNOWSQL_USER', kwargs["user"])

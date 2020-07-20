@@ -2,14 +2,17 @@ from tkinter import *
 from tkinter.ttk import *
 from lid_nid_gui import LidNidMapperGUI
 
+import os
 import time
 
 # PROCESS SETTINGS
 #-------------------------------------------------------------------------------------------------
 # Calculate process time
 start = time.time()
+nielsen_insights_path = 'Nielsen Insights/'
 
-
+# create directory for output file
+os.makedirs(nielsen_insights_path, exist_ok=True)
 
 root = Tk()
 

@@ -37,3 +37,6 @@ share/python-wheels/
 *config.py
 
 __pycache__/
+
+# ignore app output directory
+Nielsen Insights/

@@ -16,7 +16,7 @@ jmespath==0.10.0
 macholib==1.14
 modulegraph==0.18
 msrest==0.6.17
-numpy==1.19.0
+numpy==1.22.0
 oauthlib==3.1.0
 oscrypto==1.2.0
 pandas==1.0.5
